@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +12,30 @@ export class LoginComponent {
 
   formLogin!:FormGroup
 
-  onSubmit(){}
+  constructor(private userService:UsersService, private router:Router){
+
+    this.formLogin = new FormGroup({
+      email: new FormControl(),
+      password: new FormControl()
+    })
+
+  }
+
+  onSubmit(){
+    console.log(this.formLogin.value)
+    this.userService.loginUser(this.formLogin.value)
+    .then(
+      response => {
+        console.log(response)
+        this.router.navigate(["inicio"])
+      }
+
+    )
+    .catch(
+      error => {
+        console.log(error)
+      }
+    )
+  }
 
 }

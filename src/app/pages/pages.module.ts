@@ -5,6 +5,8 @@ import { ProductosComponent } from './productos/productos.component';
 import { MisProductosComponent } from './mis-productos/mis-productos.component';
 import { AgregarProductosComponent } from './agregar-productos/agregar-productos.component';
 import { ListaProductosComponent } from './lista-productos/lista-productos.component';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,10 +16,13 @@ import { ListaProductosComponent } from './lista-productos/lista-productos.compo
     ProductosComponent,
     MisProductosComponent,
     AgregarProductosComponent,
-    ListaProductosComponent
+    ListaProductosComponent,
+    RegisterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     InicioComponent,
