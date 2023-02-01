@@ -18,6 +18,13 @@ import { ListaProductosComponent } from './lista-productos/lista-productos.compo
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    InicioComponent,
+    ProductosComponent,
+    MisProductosComponent,
+    AgregarProductosComponent,
+    ListaProductosComponent
   ]
 })
 export class PagesModule { }
