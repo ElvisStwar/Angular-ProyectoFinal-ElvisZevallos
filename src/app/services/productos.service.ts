@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { collectionData, Firestore } from '@angular/fire/firestore';
-import { addDoc, collection, doc } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { Productos } from '../interface/productos';
 
@@ -24,6 +24,11 @@ export class ProductosService {
     return collectionData(productosRef, {idField:'id'}) as Observable<Productos[]>
 
    }
+
+  deleteAbarrotes(productos:Productos){
+  const productosRef = doc(this.fireStore,`Abarrotes/${productos.id}`)
+  return deleteDoc(productosRef);
+ }
 
 
 }

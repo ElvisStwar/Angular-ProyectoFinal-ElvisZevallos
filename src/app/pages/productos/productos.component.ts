@@ -21,7 +21,7 @@ export class ProductosComponent {
     this.ProductosService.getProductos().subscribe(Productos => {
     this.productos = Productos
     })
-    console.log('hola')
+
   }
 
 

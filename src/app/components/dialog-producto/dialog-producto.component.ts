@@ -25,7 +25,14 @@ export class DialogProductoComponent {
 
   imprimir(){
     console.log(this.formRegisterP.value)
-    const response = this.productosData.addProducto(this.formRegisterP.value)
-    console.log(response)
+    if(this.formRegisterP.value.name!=null && 
+      this.formRegisterP.value.descripcion!=null &&
+      this.formRegisterP.value.precio!=null &&
+      this.formRegisterP.value.foto!=null){
+        const response = this.productosData.addProducto(this.formRegisterP.value)
+        console.log(response)
+      } else {
+        console.log('llena todods los campos')
+      }
   }
 }
