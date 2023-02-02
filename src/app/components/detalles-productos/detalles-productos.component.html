@@ -16,7 +16,7 @@
                         <p class="">{{detalle.descripcion}}</p>
                         
                         <div class=" d-grid mb-3" style="width: 180px;">
-                            <button class="btn btn-danger" >Agregar al carrito</button>
+                            <button class="btn btn-danger" [routerLink]="['/agregarProducto',detalle.name]" >Agregar al carrito</button>
                         </div>
                     </div>
                 </div>

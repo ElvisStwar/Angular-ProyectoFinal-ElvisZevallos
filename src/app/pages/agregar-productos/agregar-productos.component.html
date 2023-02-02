@@ -1,5 +1,23 @@
-<div>
-    <div>
-        
+<div class='m-4'><h1 style="font-size: 40px;">Producto</h1></div>
+<hr>
+<div class="mt-5">
+    <div class="row mx-auto g-3" style="width: 100%;">
+        <div class="col" *ngFor="let add of producto">
+            <div class="border rounded-3 mx-auto p-3 position-relative" style="width: 250px;">
+                <div class=" text-center">
+                    <img src="{{add.foto}}" alt="" width="150px">
+                </div>
+                <hr>
+                <div class="mb-4">
+                    <h4 class="text-center">{{add.name}}</h4>
+                </div>
+                <div class="mb-4">
+                    <input class="form-control" type="number" placeholder="Cantidad">
+                </div>
+                <div class="text-center d-grid mb-3">
+                    <button class="btn btn-danger">Agregar</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
