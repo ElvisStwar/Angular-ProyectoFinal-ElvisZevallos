@@ -7,15 +7,20 @@ import { ListaProductosComponent } from './pages/lista-productos/lista-productos
 import { ProductosComponent } from './pages/productos/productos.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { canActivate, redirectLoggedInTo } from '@angular/fire/auth-guard';
+import { DialogProductoComponent } from './components/dialog-producto/dialog-producto.component';
 
 const routes: Routes = [
 
-  {path:"inicio",component:InicioComponent},
+  {path:"inicio",component:InicioComponent,
+  children: [
+    { path: '',component:ProductosComponent},
+  ]},
   {path:"login",component:LoginComponent,...canActivate(()=> redirectLoggedInTo(["inicio"]))},
   {path:"productos",component:ProductosComponent},
   {path:"listaProductos",component:ListaProductosComponent},
-  {path:"detalles",component:DetallesProductosComponent},
+  {path:"detalles/:id",component:DetallesProductosComponent},
   {path:"registro",component:RegisterComponent},
+  {path:"registroProductos",component:DialogProductoComponent},
   {path:"**",pathMatch:'full',redirectTo:"inicio"},
 
 

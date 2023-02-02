@@ -1,1 +1,26 @@
-<p>detalles-productos works!</p>
+<div class='m-4'><h1 style="font-size: 40px;">Detalles</h1></div>
+<hr>
+<div class="mt-5">
+    <div class="row mx-auto g-3" style="width: 100%;">
+        <div class="col" *ngFor="let detalle of producto">
+            <div class="row border rounded-3 mx-auto p-3 position-relative" style="width: 90%;">
+                <div class="col border text-center ">
+                    <img class="" src="{{detalle.foto}}" alt="" width="250px">
+                </div>
+                <div class="col border">
+                    <div class="m-5">
+                        <h4>{{detalle.name}}</h4>
+                        
+                        <h5 class="text-danger">{{detalle.precio|currency}}</h5>
+                        
+                        <p class="">{{detalle.descripcion}}</p>
+                        
+                        <div class=" d-grid mb-3" style="width: 180px;">
+                            <button class="btn btn-danger" >Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

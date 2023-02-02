@@ -1,1 +1,26 @@
-<p>productos works!</p>
+<div class='m-4'><h1 style="font-size: 40px;">Productos</h1></div>
+<hr>
+<div class="mt-5">
+    <div class="row mx-auto g-3" style="width: 100%;">
+        <div class="col" *ngFor="let producto of productos">
+            <div class="border rounded-3 mx-auto p-3 position-relative" style="width: 225px; height: 400px;">
+                <div class=" text-center">
+                    <img src="{{producto.foto}}" alt="" width="150px">
+                </div>
+                <hr>
+                <div>
+                    <h4>{{producto.name}}</h4>
+                </div>
+                <div>
+                    <h5 class="text-danger">{{producto.precio|currency}}</h5>
+                </div>
+                <div>
+                    <a class="" [routerLink]="['/detalles',producto.name]">Ver detalles</a>
+                </div>
+                <div class=" d-grid position-absolute bottom-0 start-50 translate-middle-x mb-3" style="width: 200px;">
+                    <button class="btn btn-danger" >Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

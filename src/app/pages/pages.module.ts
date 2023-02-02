@@ -7,6 +7,7 @@ import { AgregarProductosComponent } from './agregar-productos/agregar-productos
 import { ListaProductosComponent } from './lista-productos/lista-productos.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterLink, RouterModule } from '@angular/router';
 
 
 
@@ -23,6 +24,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterLink,
+    RouterModule
+    
   ],
   exports: [
     InicioComponent,
