@@ -29,7 +29,7 @@ export class DialogProductoComponent implements OnInit{
     }
   }
 
-  imprimir(){
+  registrar(){
     console.log(this.formRegisterP.value)
     if(this.formRegisterP.value.name!=null && 
       this.formRegisterP.value.descripcion!=null &&
@@ -37,8 +37,10 @@ export class DialogProductoComponent implements OnInit{
       this.formRegisterP.value.foto!=null){
         const response = this.productosData.addProducto(this.formRegisterP.value)
         console.log(response)
+        this.router.navigate(["/listaProductos"])
       } else {
         console.log('llena todods los campos')
       }
+
   }
 }

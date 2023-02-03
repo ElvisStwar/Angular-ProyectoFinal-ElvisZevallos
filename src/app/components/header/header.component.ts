@@ -13,6 +13,9 @@ export class HeaderComponent implements OnInit{
   modoAdmin=false
   modoUser=true
 
+  botonLogIn=true
+  botonLogOut=false
+
   logOut(){
 
     this.userService.logout()
@@ -29,6 +32,17 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
+
+      if(localStorage.getItem("status")!="logIn"){
+        this.botonLogIn=true
+        this.botonLogOut=false
+      }else{
+        this.botonLogIn=false
+        this.botonLogOut=true
+      }
+
+
+
       if(localStorage.getItem("User")=="admin@hotmail.com"&&localStorage.getItem("status")=="logIn"){
         console.log("admin logueado")
         localStorage.setItem("modo","Admin")

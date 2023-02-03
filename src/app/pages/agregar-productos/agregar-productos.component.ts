@@ -32,7 +32,7 @@ export class AgregarProductosComponent {
   }
 
   agregar(){
-    if(this.cantidad==null){
+    if(this.cantidad==null||this.cantidad==0){
     }else{
       this.producto[0].cantidad=this.cantidad
       localStorage.setItem(`${this.producto[0].id}`,JSON.stringify(this.producto[0]))

@@ -18,11 +18,11 @@
         </ul>
         <form class="d-flex" role="search">
             <div class="p-1">
-                <button class="btn btn-outline-light" routerLink="/login" type="button">Iniciar Sesión</button>
+                <button class="btn btn-outline-light" *ngIf="botonLogIn" routerLink="/login" type="button">Iniciar Sesión</button>
             </div>
 
             <div class="p-1">
-                <button class="btn btn-outline-light" type="button" (click)="logOut()">Cerrar Sesión</button>
+                <button class="btn btn-outline-light" *ngIf="botonLogOut" type="button" (click)="logOut()">Cerrar Sesión</button>
             </div>
         </form>
       </div>
@@ -47,11 +47,11 @@
         </ul>
         <form class="d-flex" role="search">
             <div class="p-1">
-                <button class="btn btn-outline-light" routerLink="/login" type="button">Iniciar Sesión</button>
+                <button class="btn btn-outline-light" *ngIf="botonLogIn" routerLink="/login" type="button">Iniciar Sesión</button>
             </div>
 
             <div class="p-1">
-                <button class="btn btn-outline-light" type="button" (click)="logOut()">Cerrar Sesión</button>
+                <button class="btn btn-outline-light" *ngIf="botonLogOut" type="button" (click)="logOut()">Cerrar Sesión</button>
             </div>
         </form>
       </div>
