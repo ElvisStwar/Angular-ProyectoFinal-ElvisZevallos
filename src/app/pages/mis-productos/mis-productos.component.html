@@ -1,1 +1,39 @@
-<p>mis-productos works!</p>
+<div class="m-5">
+    <div>
+        <h2 style="font-size: 30px; text-align: center;">Mi carrito de compras</h2>
+    </div>
+        <div class="mt-4 table-responsive">
+            <table class="table table-bordered align-middle">
+                <thead>
+                <tr>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio Ud.</th>
+                    <th scope="col">Precio Total</th>
+                    <th scope="col" class="text-center">Eliminar</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let producto of carrito">
+                    <td class="text-center"><img src="{{producto.foto}}" alt="" width="60px"></td>
+                    <td>{{producto.name}}</td>
+                    <td class="text-center">{{producto.cantidad}}</td>
+                    <td class="text-center">{{producto.precio|currency}}</td>
+                    <td class="text-center">{{producto.precioTotal|currency}}</td>
+                    <td class="text-center"><button class="btn btn-danger" (click)="deleteItem(producto.id)"><i class="bi bi-trash3-fill"></i></button></td>
+                </tr>
+                <tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mb-4">
+            <h1>Total a pagar: {{totalPagar|currency}}</h1>
+        </div>
+        <div class="">
+            <div class="text-center d-grid gap-2">
+                <button class="btn btn-success">Pagar</button>
+                <button class="btn btn-danger" routerLink="/productos">Seguir comprando</button>
+            </div>
+        </div>
+  </div>

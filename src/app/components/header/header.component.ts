@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -7,9 +7,11 @@ import { UsersService } from 'src/app/services/users.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
   constructor(private userService:UsersService, private router:Router){}
+  modoAdmin=false
+  modoUser=true
 
   logOut(){
 
@@ -17,11 +19,26 @@ export class HeaderComponent {
     .then( ()=>{
       // this.router.navigate(['login']);
       localStorage.setItem('status','logOut')
+      localStorage.setItem('User','Invitado')
+      location.reload()
     }
 
     )
     .catch(error => console.log(error))
 
+  }
+
+  ngOnInit(): void {
+      if(localStorage.getItem("User")=="admin@hotmail.com"&&localStorage.getItem("status")=="logIn"){
+        console.log("admin logueado")
+        localStorage.setItem("modo","Admin")
+        this.modoAdmin=true
+        this.modoUser=false
+      }else{
+        localStorage.setItem("modo","User")
+        this.modoAdmin=false
+        this.modoUser=true
+      }
   }
 
 

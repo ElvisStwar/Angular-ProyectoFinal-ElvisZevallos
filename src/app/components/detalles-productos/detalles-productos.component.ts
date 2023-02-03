@@ -19,7 +19,7 @@ export class DetallesProductosComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = String(this.route.snapshot.paramMap.get("id"));
-    this.detallesProductos.getProductos().subscribe(detallesProductos => console.log(detallesProductos))
+    // this.detallesProductos.getProductos().subscribe(detallesProductos => console.log(detallesProductos))
     this.detallesProductos.getProductos().subscribe(detallesProductos => {
       this.productos = detallesProductos
       this.filtrar()

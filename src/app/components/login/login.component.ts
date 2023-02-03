@@ -27,7 +27,16 @@ export class LoginComponent {
     .then(
       response => {
         console.log(response)
-        this.router.navigate(["inicio"])
+        localStorage.setItem("status","logIn")
+        localStorage.setItem("User",this.formLogin.value.email)
+        location.reload()
+        if(localStorage.getItem("modo")=="Admin"){
+
+          this.router.navigate(["listaProductos"])
+        }else{
+
+          this.router.navigate(["inicio"])
+        }
       }
 
     )

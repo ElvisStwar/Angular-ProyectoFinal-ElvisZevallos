@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
@@ -8,7 +8,7 @@ import { ProductosService } from 'src/app/services/productos.service';
   templateUrl: './dialog-producto.component.html',
   styleUrls: ['./dialog-producto.component.css']
 })
-export class DialogProductoComponent {
+export class DialogProductoComponent implements OnInit{
 
   formRegisterP!:FormGroup
 
@@ -21,6 +21,12 @@ export class DialogProductoComponent {
       foto:new FormControl(),
     })
 
+  }
+
+  ngOnInit(): void {
+    if(localStorage.getItem("modo")!="Admin"){
+      this.router.navigate(["/inicio"])
+    }
   }
 
   imprimir(){

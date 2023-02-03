@@ -9,6 +9,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { canActivate, redirectLoggedInTo } from '@angular/fire/auth-guard';
 import { DialogProductoComponent } from './components/dialog-producto/dialog-producto.component';
 import { AgregarProductosComponent } from './pages/agregar-productos/agregar-productos.component';
+import { MisProductosComponent } from './pages/mis-productos/mis-productos.component';
 
 const routes: Routes = [
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:"detalles/:id",component:DetallesProductosComponent},
   {path:"registro",component:RegisterComponent},
   {path:"registroProductos",component:DialogProductoComponent},
+  {path:"carrito",component:MisProductosComponent},
   {path:"**",pathMatch:'full',redirectTo:"inicio"},
 
 

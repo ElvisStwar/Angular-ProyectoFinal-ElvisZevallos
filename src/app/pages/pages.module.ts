@@ -18,7 +18,7 @@ import { RouterLink, RouterModule } from '@angular/router';
     MisProductosComponent,
     AgregarProductosComponent,
     ListaProductosComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     CommonModule,

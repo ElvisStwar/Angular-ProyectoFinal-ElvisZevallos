@@ -1,6 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
@@ -16,11 +16,11 @@ export class AgregarProductosComponent {
   productos:any[]=[];
   producto:any[]=[];
 
-  constructor(private route:ActivatedRoute,private addProducto:ProductosService){}
+  constructor(private route:ActivatedRoute,private addProducto:ProductosService,private router:Router){}
 
   ngOnInit(): void {
     this.id = String(this.route.snapshot.paramMap.get("id"));
-    this.addProducto.getProductos().subscribe(addProducto => console.log(addProducto))
+    // this.addProducto.getProductos().subscribe(addProducto => console.log(addProducto))
     this.addProducto.getProductos().subscribe(addProducto => {
       this.productos = addProducto
       this.filtrar()
@@ -32,17 +32,13 @@ export class AgregarProductosComponent {
   }
 
   agregar(){
-    console.log(this.producto[0].name)
-
     if(this.cantidad==null){
-      console.log('es null')
     }else{
       this.producto[0].cantidad=this.cantidad
-      localStorage.setItem(`${this.producto[0].name}`,JSON.stringify(this.producto[0].cantidad))
-      console.log('no es null')
+      localStorage.setItem(`${this.producto[0].id}`,JSON.stringify(this.producto[0]))
+      // this.router.navigate(["carrito"])
+      window.history.back()
     }
-
-    console.log(this.producto)
   }
   
 
