@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dialog-producto',
@@ -37,9 +38,22 @@ export class DialogProductoComponent implements OnInit{
       this.formRegisterP.value.foto!=null){
         const response = this.productosData.addProducto(this.formRegisterP.value)
         console.log(response)
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Producto registrado',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.router.navigate(["/listaProductos"])
       } else {
-        console.log('llena todods los campos')
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Llene todos los campos por favor',
+          showConfirmButton: false,
+          timer: 1700
+        })
       }
 
   }

@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -43,6 +45,13 @@ export class LoginComponent {
     .catch(
       error => {
         console.log(error)
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Correo y/o contraseña invalidos',
+          showConfirmButton: false,
+          timer: 1700
+        })
       }
     )
   }
