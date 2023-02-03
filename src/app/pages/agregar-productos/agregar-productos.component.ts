@@ -17,7 +17,7 @@ export class AgregarProductosComponent {
   carrito:any[]=[];
   itemsCarrito:any
 
-  cantidad!:number
+  cantidad=1
   productos:any[]=[];
   producto:any[]=[];
 
@@ -40,6 +40,13 @@ export class AgregarProductosComponent {
   
   agregar(){
     if(this.cantidad==null||this.cantidad==0){
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Mínimo puede pedir 1 producto',
+        showConfirmButton: false,
+        timer: 2000
+      })
     }else{
       this.producto[0].cantidad=this.cantidad
       localStorage.setItem(`${this.producto[0].id}`,JSON.stringify(this.producto[0]))
@@ -80,4 +87,9 @@ export class AgregarProductosComponent {
   }
   
 
+  atras(){
+
+    window. history. back();
+
+  }
 }
