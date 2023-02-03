@@ -39,6 +39,7 @@ export class AgregarProductosComponent {
       // this.router.navigate(["carrito"])
       window.history.back()
     }
+    console.log("hola")
   }
   
 
