@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-agregar-productos',
   templateUrl: './agregar-productos.component.html',
@@ -37,9 +39,17 @@ export class AgregarProductosComponent {
       this.producto[0].cantidad=this.cantidad
       localStorage.setItem(`${this.producto[0].id}`,JSON.stringify(this.producto[0]))
       // this.router.navigate(["carrito"])
+
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Agregado al carrito correctamente',
+        showConfirmButton: false,
+        timer: 1300
+      })
+
       window.history.back()
     }
-    console.log("hola")
   }
   
 
