@@ -11,6 +11,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class RegisterComponent {
 
   formRegister!:FormGroup
+  confPassword!:string
 
   constructor(private userService:UsersService, private router:Router){
 
@@ -25,17 +26,22 @@ export class RegisterComponent {
 
     console.log(this.formRegister.value)
 
-    this.userService.registerUser(this.formRegister.value)
-    .then( response =>{
-      console.log(response)
-      
-      this.userService.logout()
-      this.router.navigate(["login"])
-    })
-    .catch( error => {
-      console.log(error)
+    if(this.formRegister.value.password==this.confPassword){
 
-    })
+      this.userService.registerUser(this.formRegister.value)
+      .then( response =>{
+        console.log(response)
+        
+        this.userService.logout()
+        this.router.navigate(["login"])
+      })
+      .catch( error => {
+        console.log(error)
+        
+      })
+    }else{
+      console.log("contraseñas no coinciden")
+    }
      
 
 
