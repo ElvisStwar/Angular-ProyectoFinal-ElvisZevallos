@@ -32,8 +32,12 @@
       </div>
     </div>
   </nav>
-
-<!-----------------------------------Mosdo Admin ------------------------------------------->
+  
+  <a *ngIf="modoUser" routerLink="/carrito" class="boton2-wsp">
+    <i class="bi bi-cart2"></i>
+  </a>
+  
+  <!-----------------------------------Mosdo Admin ------------------------------------------->
   <nav *ngIf="modoAdmin" class="navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">
       <a class="navbar-brand text-white p-1" href="#"> ECommerceAdmin</a>
