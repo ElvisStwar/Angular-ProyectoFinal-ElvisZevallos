@@ -14,6 +14,9 @@ export class AgregarProductosComponent {
 
   id!:string
 
+  carrito:any[]=[];
+  itemsCarrito:any
+
   cantidad!:number
   productos:any[]=[];
   producto:any[]=[];
@@ -26,6 +29,7 @@ export class AgregarProductosComponent {
     this.addProducto.getProductos().subscribe(addProducto => {
       this.productos = addProducto
       this.filtrar()
+      this.cantidadCarrito()
     })
   }
 
@@ -33,6 +37,7 @@ export class AgregarProductosComponent {
     this.producto=this.productos.filter(producto =>producto.name===this.id)
   }
 
+  
   agregar(){
     if(this.cantidad==null||this.cantidad==0){
     }else{
@@ -47,9 +52,31 @@ export class AgregarProductosComponent {
         showConfirmButton: false,
         timer: 1300
       })
-
       window.history.back()
     }
+    
+    this.itemsCarrito=this.carrito.length
+    localStorage.setItem("ItemsCarrito",this.itemsCarrito)
+    
+    
+  }
+  
+  cantidadCarrito(){
+    for(let i=0;i<this.productos.length;i++){
+      let item:any
+      item = localStorage.getItem(`${this.productos[i].id}`)
+      item = JSON.parse(item)
+      if(item!=null){
+        this.carrito.push(item)
+      }else{
+        
+      }
+    }
+    
+    this.itemsCarrito=this.carrito.length
+    localStorage.setItem("ItemsCarrito",this.itemsCarrito)
+    console.log(this.cantidad)
+    console.log(this.carrito)
   }
   
 

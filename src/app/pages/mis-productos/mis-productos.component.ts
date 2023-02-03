@@ -11,6 +11,8 @@ export class MisProductosComponent implements OnInit{
 
   carrito:any[]=[];
 
+  itemsCarrito:any
+
   totalPagar=0
 
   productos:any[]=[];
@@ -51,6 +53,8 @@ export class MisProductosComponent implements OnInit{
   deleteItem(id:string){
     this.carrito=this.carrito.filter(item=>item.id!=id)
     localStorage.removeItem(id)
+    this.itemsCarrito=this.carrito.length
+    localStorage.setItem("ItemsCarrito",this.itemsCarrito)
     this.cargarTotal()
   }
 
