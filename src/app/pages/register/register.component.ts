@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -32,6 +34,14 @@ export class RegisterComponent {
       .then( response =>{
         console.log(response)
         
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Registrado correctamente',
+          showConfirmButton: false,
+          timer: 1300
+        })
+
         this.userService.logout()
         this.router.navigate(["login"])
       })
