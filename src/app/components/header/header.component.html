@@ -22,6 +22,10 @@
             </div>
 
             <div class="p-1">
+              <span class="btn btn-link text-white" style="text-decoration: none;" *ngIf="botonLogOut" >Hola {{holaUser}}</span>
+            </div>
+
+            <div class="p-1">
                 <button class="btn btn-outline-light" *ngIf="botonLogOut" type="button" (click)="logOut()">Cerrar Sesión</button>
             </div>
         </form>
@@ -48,6 +52,10 @@
         <form class="d-flex" role="search">
             <div class="p-1">
                 <button class="btn btn-outline-light" *ngIf="botonLogIn" routerLink="/login" type="button">Iniciar Sesión</button>
+            </div>
+
+            <div class="p-1">
+                <span class="btn btn-link text-white" style="text-decoration: none;" *ngIf="botonLogOut" >Hola Admin</span>
             </div>
 
             <div class="p-1">

@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit{
   botonLogIn=true
   botonLogOut=false
 
+  holaUser:any
+
   logOut(){
 
     this.userService.logout()
@@ -32,6 +34,8 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
+
+      this.holaUser=localStorage.getItem("User")
 
       if(localStorage.getItem("status")!="logIn"){
         this.botonLogIn=true
