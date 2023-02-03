@@ -30,6 +30,12 @@ export class DetallesProductosComponent implements OnInit {
     this.producto=this.productos.filter(producto =>producto.name===this.id)
   }
 
+  atras(){
+
+    window. history. back();
+
+  }
+
 
 
 
