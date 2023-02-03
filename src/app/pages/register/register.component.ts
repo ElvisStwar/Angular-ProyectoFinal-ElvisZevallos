@@ -47,10 +47,23 @@ export class RegisterComponent {
       })
       .catch( error => {
         console.log(error)
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Llene todos los campos por favor',
+          showConfirmButton: false,
+          timer: 2000
+        })
         
       })
     }else{
-      console.log("contraseñas no coinciden")
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Las contraseñas no coinciden',
+        showConfirmButton: false,
+        timer: 1700
+      })
     }
      
 
